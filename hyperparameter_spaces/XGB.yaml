@@ -1,0 +1,48 @@
+XGBoost:
+    classpath: xgboost.sklearn.XGBClassifier
+
+    kwargs:
+        n_jobs: 30
+        
+        n_estimators:
+            type: int
+            range: [ 50, 500 ]
+            log: False
+
+        learning_rate:
+            type: float
+            range: [ 0.015625, 0.5 ]
+            log: True
+
+        max_depth:
+            type: int
+            range: [ 2, 15 ]
+            log: False
+
+        min_child_weight:
+            type: float
+            range: [ 1, 32 ]
+            log: True
+
+        subsample:
+            type: float
+            range: [ 0.0, 1.0 ]
+            log: False
+
+        colsample_bytree:
+            type: float
+            range: [ 0.0, 1.0 ]
+            log: False
+
+        reg_alpha:
+            type: float
+            range: [ 0.125, 8 ]
+            log: True
+
+        reg_lambda:
+            type: float
+            range: [ 0.125, 8 ]
+            log: True
+
+        use_label_encoder:
+            - False
