@@ -1,0 +1,25 @@
+DT:
+    classpath: sklearn.tree.DecisionTreeClassifier
+
+    kwargs:
+        max_depth:
+            type: int
+            range: [ 5, 150 ]
+            log: True
+
+        criterion:
+            - "gini"
+            - "entropy"
+
+        min_samples_split:
+            type: int
+            range: [ 3, 100 ]
+            log: True
+
+        min_samples_leaf:
+            type: int
+            range: [ 2, 80 ]
+            log: True
+
+        splitter:
+            - best

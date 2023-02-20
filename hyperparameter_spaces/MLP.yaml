@@ -1,0 +1,61 @@
+MLP:
+    classpath: fairautoml.wrappers.nn.FeedForwardClassifier
+        
+    kwargs:
+        n_jobs: 1  # currently ignored for skorch MLPs
+            
+        batch_size:
+            - 2048
+                
+        # Training params
+        max_epochs:
+            type: int
+            range: [10, 100]
+            #range: [1, 2]
+            # Note: DC converges after around 50-100 epochs
+            
+        model__hidden_layers:
+            - [ 20 ]
+            - [ 20, 20 ]
+            - [ 20, 10 ]
+            - [ 50 ]
+            - [ 50, 50 ]
+            - [ 50, 25 ]
+            - [ 100 ]
+            - [ 100, 100 ]
+            - [ 100, 50 ]
+            - [ 200 ]
+            - [ 200, 200 ]
+            - [ 200, 100 ]
+            - [ 500 ]
+            - [ 500, 500 ]
+            - [ 500, 200 ]
+            
+        model__use_batch_norm:
+            - True
+            - False
+            
+        model__dropout:
+            type: float
+            range: [ 0, 0.4 ]
+                
+        # Optimizer params
+        optimizer__lr:
+            type: float
+            range: [ 0.0005, 0.005 ]
+            log: True
+                
+        optimizer__betas:
+            - [ 0.9, 0.999 ]
+#               - [ 0.9, 0.9995 ]
+#               - [ 0.95, 0.999 ]
+#               - [ 0.95, 0.9995 ]
+
+        optimizer__weight_decay:
+            - 0
+            - 0.01
+            - 0.001
+            
+        optimizer__amsgrad:
+            - True
+            - False

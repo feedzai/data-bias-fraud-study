@@ -1,0 +1,30 @@
+LR:
+    classpath: sklearn.linear_model.LogisticRegression
+    kwargs:
+        penalty:
+            - l2
+            #- l1
+
+        C:
+            - 1
+            - 0.1
+            - 0.01
+            - 0.001
+            - 0.0001
+            - 0.00001
+
+        tol:
+            type: float
+            range: [ 0.00005, 0.01 ]
+            log: True
+
+        max_iter:
+            type: int
+            range: [ 500, 5000 ]
+            log: True
+
+        solver:
+            - lbfgs
+
+        #verbose:
+        #    - 1

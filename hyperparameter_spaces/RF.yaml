@@ -1,0 +1,33 @@
+RF:
+    classpath: sklearn.ensemble.RandomForestClassifier
+
+    kwargs:
+        n_jobs: 50
+
+        n_estimators:
+            type: int
+            range: [ 5, 20000 ]
+            log: True
+
+        max_depth:
+            type: int
+            range: [ 5, 50 ]
+            log: True
+
+        criterion:
+            - "gini"
+            - "entropy"
+
+        min_samples_split:
+            type: int
+            range: [ 2, 120 ]
+            log: True
+
+        min_samples_leaf:
+            type: int
+            range: [ 2, 100 ]
+            log: True
+
+        max_features:
+            - "sqrt" # <=> "auto"
+            - "log2"
